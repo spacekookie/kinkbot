@@ -1,0 +1,19 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+(progn ;;init forms
+  (ros:ensure-asdf)
+  ;;#+quicklisp (ql:quickload '() :silent t)
+  )
+
+(defpackage :ros.script.kinkbot.3735662671
+  (:use :cl))
+(in-package :ros.script.kinkbot.3735662671)
+
+(load (merge-pathnames "main.lisp" *load-truename*))
+
+;; (defun main (&rest argv)
+;;   (declare (ignorable argv)))
+;;; vim: set ft=lisp lisp:
